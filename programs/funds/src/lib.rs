@@ -18,4 +18,8 @@ pub mod funds {
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
         initialize::handler(ctx)
     }
+
+    pub fn create_fund(ctx: Context<CreateFund>, fund_name: String, id: u64) -> Result<()> {
+        create_fund::handler(ctx, fund_name, id)
+    }
 }
