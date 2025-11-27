@@ -22,4 +22,8 @@ pub mod funds {
     pub fn create_fund(ctx: Context<CreateFund>, fund_name: String, id: u64) -> Result<()> {
         create_fund::handler(ctx, fund_name, id)
     }
+
+    pub fn deposit(ctx: Context<Deposit>, amount: u64) -> Result<()> {
+        deposit::handler(ctx, amount)
+    }
 }
