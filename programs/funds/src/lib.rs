@@ -5,9 +5,9 @@ pub mod state;
 
 use anchor_lang::prelude::*;
 
-pub use constants::*;
-pub use instructions::*;
-pub use state::*;
+// use constants::*;
+use instructions::*;
+use state::*;
 
 declare_id!("G6MxBUWK1gvoQ3YGxeHZ6jCStN9mMcBE1zEzqMBBuTwe");
 
@@ -15,15 +15,11 @@ declare_id!("G6MxBUWK1gvoQ3YGxeHZ6jCStN9mMcBE1zEzqMBBuTwe");
 pub mod funds {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        initialize::handler(ctx)
-    }
-
     pub fn create_fund(ctx: Context<CreateFund>, fund_name: String, id: u64) -> Result<()> {
-        create_fund::handler(ctx, fund_name, id)
+        create_fund::create_fund_handler(ctx, fund_name, id)
     }
 
     pub fn deposit(ctx: Context<Deposit>, amount: u64) -> Result<()> {
-        deposit::handler(ctx, amount)
+        deposit::deposit_handler(ctx, amount)
     }
 }

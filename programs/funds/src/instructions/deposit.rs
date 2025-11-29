@@ -67,7 +67,7 @@ pub struct Deposit<'info> {
     pub system_program: Program<'info, System>,
 }
 
-pub fn handler(ctx: Context<Deposit>, amount: u64) -> Result<()> {
+pub fn deposit_handler(ctx: Context<Deposit>, amount: u64) -> Result<()> {
     // Transfer input tokens from user to fund vault
     let transfer_ctx = CpiContext::new(
         ctx.accounts.token_program.to_account_info(),

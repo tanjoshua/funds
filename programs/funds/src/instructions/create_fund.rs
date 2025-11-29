@@ -44,7 +44,7 @@ pub struct CreateFund<'info> {
     pub system_program: Program<'info, System>,
 }
 
-pub fn handler(ctx: Context<CreateFund>, fund_name: String, id: u64) -> Result<()> {
+pub fn create_fund_handler(ctx: Context<CreateFund>, fund_name: String, id: u64) -> Result<()> {
     let fund = &mut ctx.accounts.fund;
     
     fund.id = id;
